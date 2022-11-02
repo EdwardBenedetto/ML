@@ -58,29 +58,45 @@ app.post("/", upload.single("file-to-upload"), async (req, res) => {
   try {
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
-    const brandURLImage = result.secure_url;
-    // Analyze URL image
-    console.log("Analyzing brands in image...", brandURLImage.split("/").pop());
-    const brands = (
-      await computerVisionClient.analyzeImage(brandURLImage, {
-        visualFeatures: ["Brands"],
-      })
-    ).brands;
+    const tagsURL = result.secure_url;
+    
+       // Analyze URL image
+       console.log('Analyzing tags in image...', tagsURL.split('/').pop());
+       const tags = (await computerVisionClient.analyzeImage(tagsURL, { visualFeatures: ['Tags'] })).tags;
+       console.log(`Tags: ${formatTags(tags)}`);
+       // </snippet_tags>
+ 
+       // <snippet_tagsformat>
+       // Format tags for display
+       function formatTags(tags) {
+         return tags.map(tag => (`${tag.name} (${tag.confidence.toFixed(2)})`)).join(', ');
+       }
 
-    // Print the brands found
-    if (brands.length) {
-      console.log(
-        `${brands.length} brand${brands.length != 1 ? "s" : ""} found:`
-      );
-      for (const brand of brands) {
-        console.log(
-          `    ${brand.name} (${brand.confidence.toFixed(2)} confidence)`
-        );
-      }
-    } else {
-      console.log(`No brands found.`);
-    }
-    res.render("result.ejs", { brands: brands, img: brandURLImage });
+
+
+    // // Analyze URL image
+    // console.log("Analyzing brands in image...", brandURLImage.split("/").pop());
+    // const brands = (
+    //   await computerVisionClient.analyzeImage(brandURLImage, {
+    //     visualFeatures: ["Brands"],
+    //   })
+    // ).brands;
+
+//     // Print the brands found
+//     if (brands.length) {
+//       console.log(
+//         `${brands.length} brand${brands.length != 1 ? "s" : ""} found:`
+//       );
+//       for (const brand of brands) {
+//         console.log(
+//           `    ${brand.name} (${brand.confidence.toFixed(2)} confidence)`
+//         );
+//       }
+//     } else {
+//       console.log(`No brands found.`);
+
+    // }
+    res.render("result.ejs", {tags: tags, img: tagsURL });
   } catch (err) {
     console.log(err);
   }
