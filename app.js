@@ -72,30 +72,6 @@ app.post("/", upload.single("file-to-upload"), async (req, res) => {
          return tags.map(tag => (`${tag.name} (${tag.confidence.toFixed(2)})`)).join(', ');
        }
 
-
-
-    // // Analyze URL image
-    // console.log("Analyzing brands in image...", brandURLImage.split("/").pop());
-    // const brands = (
-    //   await computerVisionClient.analyzeImage(brandURLImage, {
-    //     visualFeatures: ["Brands"],
-    //   })
-    // ).brands;
-
-//     // Print the brands found
-//     if (brands.length) {
-//       console.log(
-//         `${brands.length} brand${brands.length != 1 ? "s" : ""} found:`
-//       );
-//       for (const brand of brands) {
-//         console.log(
-//           `    ${brand.name} (${brand.confidence.toFixed(2)} confidence)`
-//         );
-//       }
-//     } else {
-//       console.log(`No brands found.`);
-
-    // }
     res.render("result.ejs", {tags: tags, img: tagsURL });
   } catch (err) {
     console.log(err);
