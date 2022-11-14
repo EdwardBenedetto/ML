@@ -1,15 +1,24 @@
 div {
     border: 1px solid red;
-
 }
 
 .img {
-    max-width: 100%;
+    max-width: 50%;
+    height: auto;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
 }
 
 .container {
     border: 1px solid red;
     width: 80%;
     margin: auto;
-  
 }

@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>What am I looking at?</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class = "container">
-      <div class = "title">
-      <h1>RESULTS:</h1>
-      </div>
-      <div class="image">
-      <img src="<%= img%>" alt="Hot dog" class="img" />
-      </div>
-      <div class = "results">
-    <ul>
-      <% for (let i = 0; i<tags.length; i++) { %>
-        <li><%=tags[i].name%> <%=tags[i].confidence.toFixed(2)%> confidence</li>
-      <% } %>
-    </ul>
-    </div> 
-<div class = "form">
-    <form action="/" enctype="multipart/form-data" method="post">
-      <input type="file" name="file-to-upload" />
-      <input type="submit" value="Upload" />
-    </form>
-  </div>
+
+<head>
+  <title>What am I looking at?</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">
     </div>
-  </body>
+    <div class="image">
+      <img src="<%= img%>" alt="Hot dog" class="img" />
+    </div>
+    <div class="results">
+      <ul>
+        <% if (tags[0].confidence>.89) { %>
+          <h1>I'm confident that this is a <%=tags[0].name%>
+          </h1>
+            <h2>Pretty sure it could also be these:</h2>
+            <% for (let i=1; i<5; i++) { %>
+              <% if (tags[i].confidence>.89) { %>
+                <li>
+                  <%=tags[i].confidence.toFixed(2)*100%>% <%=tags[i].name%>
+                </li>
+                <% } %>
+                <% } %>
+                  <% } else { %>
+                      <h1>Not sure what this is...please upload a clearer picture</h1>
+                      <% } %>
+      </ul>
+    </div>
+    <div class="form">
+      <form action="/" enctype="multipart/form-data" method="post">
+        <input type="file" name="file-to-upload" />
+        <input type="submit" value="Upload" />
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>
