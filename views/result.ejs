@@ -18,7 +18,7 @@
     <div class="results">
       <ul>
         <% if (tags[0].confidence>.89) { %>
-          <h1>I'm confident that this is a <%=tags[0].name%>
+          <h1>This looks like <%=tags[1].name%>
           </h1>
             <h2>Pretty sure it could also be these:</h2>
             <% for (let i=1; i<5; i++) { %>
