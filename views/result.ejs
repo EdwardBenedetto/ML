@@ -21,7 +21,7 @@
           <h1>This looks like <%=tags[1].name%>
           </h1>
             <h2>Pretty sure it could also be these:</h2>
-            <% for (let i=1; i<5; i++) { %>
+            <% for (let i=2; i<5; i++) { %>
               <% if (tags[i].confidence>.89) { %>
                 <li>
                   <%=tags[i].confidence.toFixed(2)*100%>% <%=tags[i].name%>
