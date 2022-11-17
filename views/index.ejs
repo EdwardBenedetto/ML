@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.42.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-     <div class="container">
-      <div class="title">
-    <h1>Please upload an image below:</h1>
-    </div>
-    <div class="submit">
-    <form action="/" enctype="multipart/form-data" method="post">
-      <input type="file" name="file-to-upload">
-      <input type="submit" value="Upload">
-    </form>  
-    </div>
-    </div>
+    <div class="container">
+        <div class="card bg-primary w-96 bg-base-100 shadow-xl">
+          <div class="card-body items-center text-center">
+            <h2 class="card-title">Please upload an image below</h2>
+            <div class="submit">
+              <form action="/" enctype="multipart/form-data" method="post">
+                <input type="file" name="file-to-upload">
+                <input type="submit" value="Upload">
+              </form>
+            </div>
+            </div>
   </body>
 </html>
