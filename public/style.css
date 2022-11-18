@@ -36,10 +36,17 @@ body {
 .card-body {
     color: navy;
     background-color: white;
+    border-radius: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+form {
+    width: 80%;
+    margin: auto;
 }
 
 .submit {
-    display: flex;
-    align-items: center;
+   display: flex;
+   flex-direction: column;
 }
 
