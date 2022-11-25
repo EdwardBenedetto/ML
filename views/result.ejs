@@ -21,13 +21,12 @@
           <div class="results">
             <ul>
               <% if (tags[0].confidence>.89) { %>
-                <h1>This looks like <%=tags[1].name%>
-                </h1>
-                  <h2>Pretty sure it could also be these:</h2>
+                <h1>This looks like <%=tags[1].name%></h1>
+    
                   <% for (let i=2; i<5; i++) { %>
                     <% if (tags[i].confidence>.89) { %>
                       <li>
-                        <%=tags[i].confidence.toFixed(2)*100%>% <%=tags[i].name%>
+                        <%=tags[i].confidence.toFixed(2)*100%>% sure it could be <%=tags[i].name%>
                       </li>
                       <% } %>
                       <% } %>

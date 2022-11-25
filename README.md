@@ -26,10 +26,6 @@ This is a project meant to demonstrate the use of Microsoft Azure's cognitive se
 
 This is a simple app. The user uploads an image to Cloudinary. Cloudinary returns both the image itself to the user (via EJS) and a URL (to the backend). The URL is fed to the Azure Cognitive Services API, which allows the API to analyze the contents of the image.
 
-## Lessons Learned:
-
-
- 
 ## Optimizations:
 
 The app itself is simple and doesn't necessarily have any elements to be optimized. I think the concept can be optimized based on specific use cases: ex: I work for a sneaker company that allows users to upload images for reivews. This technology can be used to identify if the user is uploading images that contain sneakers.
