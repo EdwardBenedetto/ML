@@ -20,6 +20,8 @@
 # Why does this exist?
 This is a project meant to demonstrate the use of Microsoft Azure's cognitive services API. There are a number of interesting APIs available that offer trained machine learning models for consumer use; this particular app uses the "computer vision" services to analyze uploaded images.
 
+https://whatamilookingat.up.railway.app/
+
 ## How It's Made:
 
 **Tech used:** HTML, CSS, JavaScript, Express, Node, Tailwind, EJS, Cloudinary, Microsoft Azure Cognitive Services API
